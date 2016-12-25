@@ -1,0 +1,43 @@
+package com.pooja.trycolorom;
+
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+import static com.pooja.trycolorom.R.id.blue;
+import static com.pooja.trycolorom.R.id.default_activity_button;
+import static com.pooja.trycolorom.R.id.green;
+import static com.pooja.trycolorom.R.id.red;
+
+public class MainActivity extends AppCompatActivity {
+TextView text;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        text= (TextView) findViewById(R.id.txt);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case red:text.setTextColor(Color.RED);break;
+            case blue:text.setTextColor(Color.BLUE);break;
+            case green:text.setTextColor(Color.GREEN);break;
+        }
+        return true;
+    }
+}
